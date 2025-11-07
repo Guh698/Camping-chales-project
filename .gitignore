@@ -1,0 +1,4 @@
+
+.vscode/
+*.php
+.DS_Store
