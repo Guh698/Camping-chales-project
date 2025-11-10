@@ -4,14 +4,68 @@
     <meta charset="UTF-8" />
     <title>Nossos Chalés</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Descubra Nossos Chalés</h1>
-    <div id="chales-container">
-      <p>Carregando os chalés mais aconchegantes...</p>
+    <div id="smoother-wrapper">
+      <div id="smoother-content">
+        <div class="master-wrapper">
+          <section id="hero-section" class="hero display-center">
+            <h1 id="hero-title">Carregando...</h1>
+          </section>
+          <section id="experience-section" class="experience display-center">
+            <div class="experience-text-container">
+              <h2 id="experience-text" class="experience-text"></h2>
+            </div>
+            <div
+              id="experience-gallery-container"
+              class="experience-imgs-container"
+            ></div>
+          </section>
+        </div>
+        <section id="variants-section" class="variants">
+          <div id="variant-1-card" class="variant-1-card">
+            <img id="variant-1-img" src="" alt="" />
+            <h3 id="variant-1-title"></h3>
+            <p id="variant-1-desc"></p>
+          </div>
+          <div id="variant-2-card" class="variant-2-card">
+            <img id="variant-2-img" src="" alt="" />
+            <h3 id="variant-2-title"></h3>
+            <p id="variant-2-desc"></p>
+          </div>
+          <div id="variant-3-card" class="variant-3-card">
+            <img id="variant-3-img" src="" alt="" />
+            <h3 id="variant-3-title"></h3>
+            <p id="variant-3-desc"></p>
+          </div>
+        </section>
+        <section class="coffee-service">
+          <div
+            id="coffee-service-gallery-container"
+            class="coffee-service-imgs-container"
+          ></div>
+        </section>
+        <section class="coffee-app"></section>
+      </div>
     </div>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">About Us,</a></li>
+          <li><a href="#">Scheduling,</a></li>
+          <li><a href="#">Contact.</a></li>
+        </ul>
+      </nav>
+    </header>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
