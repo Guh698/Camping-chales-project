@@ -5,8 +5,6 @@ gsap.registerPlugin(
   Draggable,
   InertiaPlugin,
   MorphSVGPlugin,
-  MotionPathPlugin,
-  DrawSVGPlugin,
   Flip
 );
 
@@ -47,6 +45,7 @@ query {
       cafeImage4 { node { sourceUrl } }
       cafeImage5 { node { sourceUrl } }
       cafeImage6 { node { sourceUrl } }
+      cafeText
     }
   }
 }
@@ -162,6 +161,12 @@ function renderHomePage(data) {
     }
   });
 
+  const cafe_text = document.getElementById("cafe_text");
+
+  if (data.cafeText) {
+    cafe_text.textContent = data.cafeText;
+  }
+
   if (data.variante1Titulo) {
     document.getElementById("variant-1-title").textContent =
       data.variante1Titulo;
@@ -189,17 +194,50 @@ function renderHomePage(data) {
       data.variante3Imagem.node.sourceUrl;
   }
 
-  gsap.from(document.getElementById("hero-title"), {
-    duration: 1.5,
-    y: 50,
-    opacity: 0,
-    ease: "power3.out",
-  });
-
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
     smooth: 1,
+  });
+
+  const splitHero = new SplitText("#hero-title", {
+    type: "words, chars",
+  });
+  const charsHero = splitHero.chars;
+
+  const splitExperience = new SplitText("#experience-text", {
+    type: "words, chars",
+  });
+  const charsExperience = splitExperience.chars;
+
+  const splitVariant1 = new SplitText("#variant-1-title", {
+    type: "words, chars",
+  });
+  const charsVariant1 = splitVariant1.chars;
+
+  const splitVariant2 = new SplitText("#variant-2-title", {
+    type: "words, chars",
+  });
+  const charsVariant2 = splitVariant2.chars;
+
+  const splitVariant3 = new SplitText("#variant-3-title", {
+    type: "words, chars",
+  });
+  const charsVariant3 = splitVariant3.chars;
+
+  const splitCoffeeService = new SplitText("#cafe_text", {
+    type: "words, chars",
+  });
+  const charsCoffeeService = splitCoffeeService.chars;
+
+  gsap.from(charsHero, {
+    y: 50,
+    opacity: 0,
+    ease: "power4.out",
+    stagger: {
+      each: 0.017,
+      from: "center",
+    },
   });
 
   const experience_img_boxes = document.querySelectorAll(".experience-img-box");
@@ -230,7 +268,15 @@ function renderHomePage(data) {
 
   masterTl.to(".experience", { y: 0, duration: 3 });
   masterTl.to(".hero ", { scale: 1.1, duration: 3 }, "<");
-  masterTl.to(".experience-text", { opacity: 1, duration: 3 });
+  masterTl.from(charsExperience, {
+    y: 50,
+    opacity: 0,
+    ease: "power4.out",
+    stagger: {
+      each: 0.03,
+      from: "center",
+    },
+  });
   masterTl.to(".experience-img-box:first-child", {
     y: "10vh",
     duration: 1,
@@ -271,14 +317,75 @@ function renderHomePage(data) {
     },
   });
 
+  gsap.set(charsCoffeeService, {
+    y: 50,
+    opacity: 0,
+  });
+
   ScrollTrigger.create({
     trigger: ".coffee-service",
     start: "top top",
+    end: "bottom center",
     onEnter: () => {
       gsap.to("header nav ul", { y: 0 });
+      gsap.to(charsCoffeeService, {
+        y: 0,
+        opacity: 1,
+        ease: "power4.out",
+        stagger: {
+          each: 0.017,
+          from: "center",
+        },
+      });
+    },
+    onEnterBack: () => {
+      gsap.to(charsCoffeeService, {
+        y: 0,
+        opacity: 1,
+        ease: "power4.out",
+        stagger: {
+          each: 0.017,
+          from: "center",
+        },
+      });
     },
     onLeaveBack: () => {
       gsap.to("header nav ul", { y: "-100px" });
+      gsap.to(charsCoffeeService, {
+        y: 50,
+        opacity: 0,
+        ease: "power4.out",
+        stagger: {
+          each: 0.017,
+          from: "center",
+        },
+      });
+    },
+    onLeave: () => {
+      gsap.to(charsCoffeeService, {
+        y: 50,
+        opacity: 0,
+        ease: "power4.out",
+        stagger: {
+          each: 0.017,
+          from: "center",
+        },
+      });
+    },
+  });
+
+  ScrollTrigger.create({
+    trigger: ".coffee-app",
+    start: "top center",
+    onEnter: () => {
+      gsap.to(charsCoffeeService, {
+        y: 50,
+        opacity: 0,
+        stagger: {
+          each: 0.017,
+          from: "center",
+        },
+      });
     },
   });
 
@@ -293,7 +400,15 @@ function renderHomePage(data) {
     },
   });
 
-  variantsTl.to(".variant-1-card h3", { opacity: 1 });
+  variantsTl.from(charsVariant1, {
+    opacity: 0,
+    y: 50,
+    ease: "power4.out",
+    stagger: {
+      each: 0.03,
+      from: "center",
+    },
+  });
   variantsTl.to("#variant-1-desc", { opacity: 1 }, "<");
 
   variantsTl.to(".variant-2-card img", {
@@ -302,7 +417,19 @@ function renderHomePage(data) {
     delay: 1,
   });
 
-  variantsTl.to(".variant-2-card h3", { opacity: 1 }, "-=.5");
+  variantsTl.from(
+    charsVariant2,
+    {
+      opacity: 0,
+      y: 50,
+      ease: "power4.out",
+      stagger: {
+        each: 0.03,
+        from: "center",
+      },
+    },
+    "-=.5"
+  );
   variantsTl.to("#variant-2-desc", { opacity: 1 }, "<");
 
   variantsTl.to(".variant-3-card img", {
@@ -310,8 +437,19 @@ function renderHomePage(data) {
     duration: 1.5,
     delay: 1,
   });
-
-  variantsTl.to(".variant-3-card h3", { opacity: 1 }, "-=.5");
+  variantsTl.from(
+    charsVariant3,
+    {
+      opacity: 0,
+      y: 50,
+      ease: "power4.out",
+      stagger: {
+        each: 0.03,
+        from: "center",
+      },
+    },
+    "-=.5"
+  );
   variantsTl.to("#variant-3-desc", { opacity: 1 }, "<");
 
   ScrollTrigger.create({
@@ -363,4 +501,18 @@ function renderHomePage(data) {
       },
     });
   });
+
+  let coffeeAppTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".coffee-app",
+      start: "center center",
+      end: "+=2700",
+      pin: true,
+      scrub: true,
+      ease: "none",
+    },
+  });
+
+  coffeeAppTl.to(".coffee-app-video", { rotateY: "35deg", rotateX: "17deg" });
+  coffeeAppTl.to(".coffee-app-tutorial-imgs", { y: "-77%" }, "<");
 }
