@@ -198,7 +198,7 @@ function renderHomePage(data) {
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
     smooth: 1,
-    smoothTouch: 0.01,
+    smoothTouch: 0.7,
     effects: true,
   });
 
