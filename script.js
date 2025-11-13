@@ -198,6 +198,7 @@ function renderHomePage(data) {
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
     smooth: 1,
+    smoothTouch: true,
   });
 
   const splitHero = new SplitText("#hero-title", {

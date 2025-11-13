@@ -359,3 +359,142 @@ h1 {
   width: 100%;
   border: 1px solid #000;
 }
+
+@media (max-width: 768px) {
+  :root {
+    --title-font-size: 13rem;
+    --big-font-size: 10rem;
+    --medium-big-font-size: 7rem;
+    --medium-font-size: 8rem;
+    --normal-font-size: 7rem;
+  }
+
+  header nav {
+    height: 6.7%;
+  }
+
+  .experience-img-box:first-child {
+    left: 3%;
+    transform: translateX(-3%) translateY(100vh);
+    width: 27%;
+    height: 17%;
+  }
+
+  .experience-img-box:nth-child(2) {
+    left: 97%;
+    transform: translateX(-97%) translateY(100vh);
+    width: 27%;
+    height: 17%;
+  }
+
+  .experience-img-box:nth-child(3) {
+    left: 50%;
+    transform: translateX(-50%) translateY(100vh);
+    width: 27%;
+    height: 17%;
+  }
+
+  .experience-img-box:nth-child(4) {
+    left: 93%;
+    transform: translateX(-93%) translateY(100vh);
+    width: 27%;
+    height: 17%;
+  }
+
+  .experience-img-box:nth-child(5) {
+    left: 3%;
+    transform: translateX(-3%) translateY(100vh);
+    width: 27%;
+    height: 17%;
+  }
+
+  .experience-img-box:nth-child(6) {
+    left: 50%;
+    transform: translateX(-50%) translateY(100vh);
+    width: 27%;
+    height: 17%;
+  }
+
+  .variants h3 {
+    top: 3%;
+  }
+
+  .coffee-service {
+    position: relative;
+    height: 350dvh;
+    width: 100%;
+  }
+
+  .coffee-service-img-box:first-child {
+    left: 4rem;
+    top: 3%;
+    width: 47%;
+    height: 7%;
+  }
+
+  .coffee-service-img-box:nth-child(2) {
+    right: 4rem;
+    top: 10%;
+    width: 37%;
+    height: 5%;
+  }
+
+  .coffee-service-img-box:nth-child(3) {
+    left: 4rem;
+    top: 23%;
+    height: 7%;
+    width: 67%;
+  }
+
+  .coffee-service-img-box:nth-child(4) {
+    right: 4rem;
+    top: 37%;
+    height: 7%;
+    width: 57%;
+  }
+
+  .coffee-service-img-box:nth-child(5) {
+    left: 4rem;
+    top: 53%;
+    width: 70%;
+    height: 10%;
+  }
+
+  .coffee-service-img-box:nth-child(6) {
+    right: 0;
+    top: 67%;
+    width: 100%;
+    height: 17%;
+  }
+
+  .coffee-service-img-box:nth-child(7) {
+    left: 4rem;
+    top: 80%;
+    width: 37%;
+    height: 17%;
+  }
+
+  .coffee-app {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .coffee-app-video-container {
+    width: 67%;
+    height: 100%;
+  }
+
+  .coffee-app-video {
+    width: 100%;
+    height: 70%;
+  }
+
+  .coffee-app-video video {
+    height: 100%;
+    width: 100%;
+  }
+
+  .coffee-app-tutorial-imgs {
+    display: none;
+  }
+}
