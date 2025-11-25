@@ -7,6 +7,7 @@
   font-weight: 400;
   font-style: normal;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 html {
@@ -319,6 +320,7 @@ html {
     text-align: center;
     color: var(--white);
     font-size: var(--medium-big-font-size);
+    pointer-events: none;
   }
 
   .coffee-app {
@@ -350,6 +352,57 @@ html {
 
   .coffee-app-tutorial-imgs {
     display: none;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100dvh;
+    padding: 10vh 4rem 0rem 4rem;
+  }
+
+  footer ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1.7rem;
+    justify-content: center;
+  }
+
+  footer ul li a,
+  footer ul li {
+    color: var(--black);
+    font-size: var(--normal-font-size);
+  }
+
+  .footer-contact-CPA {
+    font-size: var(--medium-big-font-size);
+  }
+
+  .footer-links-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+    color: var(--black);
+  }
+
+  .footer-links-container ul {
+    width: 100%;
+    justify-content: start;
+  }
+
+  .footer-general-inquires {
+    flex-direction: column;
+  }
+
+  .footer-logo {
+    display: none;
+    width: 20%;
+  }
+
+  .footer-copy {
+    font-size: var(--normal-font-size);
   }
 }
 
@@ -503,5 +556,32 @@ html {
     height: 50%;
     width: 100%;
     border: 1px solid #000;
+  }
+
+  footer ul {
+    flex-direction: column;
+  }
+
+  .footer-contact-CPA {
+    height: 20%;
+  }
+
+  .footer-links-container {
+    height: 60%;
+    flex-direction: row;
+  }
+
+  .footer-links-container ul {
+    width: 23%;
+    justify-content: center;
+  }
+
+  .footer-logo {
+    display: block;
+    border: 1px solid #000;
+  }
+
+  .footer-copy {
+    height: 10%;
   }
 }
