@@ -208,6 +208,23 @@ html {
   .footer-copy {
     font-size: var(--small-mobile-font-size);
   }
+
+  .link {
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  .upper-link {
+    position: relative;
+  }
+
+  .lower-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -289,22 +306,5 @@ html {
   .footer-copy {
     height: 10%;
     font-size: var(--normal-font-size);
-  }
-
-  .link {
-    position: relative;
-    overflow: hidden;
-    width: fit-content;
-    cursor: pointer;
-  }
-
-  .upper-link {
-    position: relative;
-  }
-
-  .lower-link {
-    position: absolute;
-    top: 0;
-    left: 0;
   }
 }
