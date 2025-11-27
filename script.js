@@ -38,6 +38,12 @@ query {
       variante3Imagem { node { sourceUrl } }
       variante3Titulo
       variante3Descricao
+      variante4Imagem { node { sourceUrl } }
+      variante4Titulo
+      variante4Descricao
+      variante5Imagem { node { sourceUrl } }
+      variante5Titulo
+      variante5Descricao
 
       cafeImage1 { node { sourceUrl } }
       cafeImage2 { node { sourceUrl } }
@@ -52,6 +58,12 @@ query {
 `;
 
 document.addEventListener("DOMContentLoaded", () => {
+  gsap.to(".transition", {
+    y: "-100%",
+    duration: 1.3,
+    ease: "power4.inOut",
+    delay: 0.7,
+  });
   fetchHomePageData();
 });
 
@@ -194,11 +206,29 @@ function renderHomePage(data) {
       data.variante3Imagem.node.sourceUrl;
   }
 
+  if (data.variante4Titulo) {
+    document.getElementById("variant-4-title").textContent =
+      data.variante4Titulo;
+    document.getElementById("variant-4-desc").textContent =
+      data.variante4Descricao;
+    document.getElementById("variant-4-img").src =
+      data.variante4Imagem.node.sourceUrl;
+  }
+
+  if (data.variante5Titulo) {
+    document.getElementById("variant-5-title").textContent =
+      data.variante5Titulo;
+    document.getElementById("variant-5-desc").textContent =
+      data.variante5Descricao;
+    document.getElementById("variant-5-img").src =
+      data.variante5Imagem.node.sourceUrl;
+  }
+
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
     smooth: 1,
-    smoothTouch: 0.7,
+    smoothTouch: 0.1,
     effects: true,
   });
 
@@ -227,10 +257,84 @@ function renderHomePage(data) {
   });
   const charsVariant3 = splitVariant3.chars;
 
+  const splitVariant4 = new SplitText("#variant-4-title", {
+    type: "words, chars",
+  });
+  const charsVariant4 = splitVariant4.chars;
+
+  const splitVariant5 = new SplitText("#variant-5-title", {
+    type: "words, chars",
+  });
+  const charsVariant5 = splitVariant5.chars;
+
   const splitCoffeeService = new SplitText("#cafe_text", {
     type: "words, chars",
   });
   const charsCoffeeService = splitCoffeeService.chars;
+
+  const links = document.querySelectorAll(".link");
+
+  links.forEach((link) => {
+    let upperLink = link.querySelector(".upper-link");
+    let lowerLink = link.querySelector(".lower-link");
+
+    let splitUpper = new SplitText(upperLink, {
+      type: "words, chars",
+    });
+    let splitLower = new SplitText(lowerLink, {
+      type: "words, chars",
+    });
+
+    let charLinks = splitUpper.chars;
+    let charLinks2 = splitLower.chars;
+
+    gsap.set(charLinks, { y: 0 });
+    gsap.set(charLinks2, { y: "150%" });
+
+    link.addEventListener("mouseenter", () => {
+      gsap.to(charLinks, {
+        scale: 1.1,
+        y: "-100%",
+        duration: 0.3,
+        stagger: {
+          each: 0.02,
+          from: "left",
+        },
+      });
+
+      gsap.to(charLinks2, {
+        scale: 1.1,
+        y: "0",
+        duration: 0.3,
+        stagger: {
+          each: 0.02,
+          from: "left",
+        },
+      });
+    });
+
+    link.addEventListener("mouseleave", () => {
+      gsap.to(charLinks, {
+        scale: 1,
+        y: "0",
+        duration: 0.3,
+        stagger: {
+          each: 0.02,
+          from: "left",
+        },
+      });
+
+      gsap.to(charLinks2, {
+        scale: 1,
+        y: "150%",
+        duration: 0.3,
+        stagger: {
+          each: 0.02,
+          from: "left",
+        },
+      });
+    });
+  });
 
   gsap.from(charsHero, {
     y: 50,
@@ -249,11 +353,11 @@ function renderHomePage(data) {
     start: "top top",
     end: "bottom center",
     onEnter: () => {
-      gsap.to("header nav ul li a", { color: "#000" });
+      gsap.to("header nav ul li a", { color: "#1e1b1a" });
     },
 
     onLeaveBack: () => {
-      gsap.to("header nav ul li a", { color: "#fff" });
+      gsap.to("header nav ul li a", { color: "#ebe8e3" });
     },
   });
 
@@ -395,7 +499,7 @@ function renderHomePage(data) {
     scrollTrigger: {
       trigger: ".variants",
       start: "center center",
-      end: "+=2700",
+      end: "+=3700",
       pin: true,
       scrub: true,
       ease: "none",
@@ -433,6 +537,7 @@ function renderHomePage(data) {
     "-=.5"
   );
   variantsTl.to("#variant-2-desc", { opacity: 1 }, "<");
+  variantsTl.to("#variant-1-desc", { pointerEvents: "none" }, "<");
 
   variantsTl.to(".variant-3-card img", {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -453,26 +558,69 @@ function renderHomePage(data) {
     "-=.5"
   );
   variantsTl.to("#variant-3-desc", { opacity: 1 }, "<");
+  variantsTl.to("#variant-2-desc", { pointerEvents: "none" }, "<");
+
+  variantsTl.to(".variant-4-card img", {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    duration: 1.5,
+    delay: 1,
+  });
+  variantsTl.from(
+    charsVariant4,
+    {
+      opacity: 0,
+      y: 50,
+      ease: "power4.out",
+      stagger: {
+        each: 0.03,
+        from: "center",
+      },
+    },
+    "-=.5"
+  );
+  variantsTl.to("#variant-4-desc", { opacity: 1 }, "<");
+  variantsTl.to("#variant-3-desc", { pointerEvents: "none" }, "<");
+
+  variantsTl.to(".variant-5-card img", {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    duration: 1.5,
+    delay: 1,
+  });
+  variantsTl.from(
+    charsVariant5,
+    {
+      opacity: 0,
+      y: 50,
+      ease: "power4.out",
+      stagger: {
+        each: 0.03,
+        from: "center",
+      },
+    },
+    "-=.5"
+  );
+  variantsTl.to("#variant-5-desc", { opacity: 1 }, "<");
+  variantsTl.to("#variant-4-desc", { pointerEvents: "none" }, "<");
 
   ScrollTrigger.create({
     trigger: ".coffee-service",
     start: "top center",
     end: "bottom center",
     onEnter: () => {
-      gsap.to("body", { backgroundColor: "#6b5846" });
-      gsap.to("header nav ul li a", { color: "#fff" });
+      gsap.to("body", { backgroundColor: "#1e1b1a" });
+      gsap.to("header nav ul li a", { color: "#ebe8e3" });
     },
     onEnterBack: () => {
-      gsap.to("body", { backgroundColor: "#6b5846" });
-      gsap.to("header nav ul li a", { color: "#fff" });
+      gsap.to("body", { backgroundColor: "#1e1b1a" });
+      gsap.to("header nav ul li a", { color: "#ebe8e3" });
     },
     onLeave: () => {
-      gsap.to("body", { backgroundColor: "#fff" });
-      gsap.to("header nav ul li a", { color: "#000" });
+      gsap.to("body", { backgroundColor: "#ebe8e3" });
+      gsap.to("header nav ul li a", { color: "#1e1b1a" });
     },
     onLeaveBack: () => {
-      gsap.to("body", { backgroundColor: "#fff" });
-      gsap.to("header nav ul li a", { color: "#000" });
+      gsap.to("body", { backgroundColor: "#ebe8e3" });
+      gsap.to("header nav ul li a", { color: "#1e1b1a" });
     },
   });
 

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Nossos Chalés</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="chales-styles.css" />
+    <link rel="stylesheet" href="chale2.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,88 +16,36 @@
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <main>
-          <div class="master-wrapper">
-            <section id="hero-section" class="hero display-center">
-              <h1 id="hero-title">Carregando...</h1>
-            </section>
-            <section id="experience-section" class="experience display-center">
-              <div class="experience-text-container">
-                <h2 id="experience-text" class="experience-text"></h2>
-              </div>
-              <div
-                id="experience-gallery-container"
-                class="experience-imgs-container"
-              ></div>
-            </section>
-          </div>
-          <section id="variants-section" class="variants">
-            <div id="variant-1-card" class="variant-1-card">
-              <img id="variant-1-img" src="" alt="" />
-              <h3 id="variant-1-title"></h3>
-              <a href="chale1.html" id="variant-1-desc"></a>
-            </div>
-            <div id="variant-2-card" class="variant-2-card">
-              <img id="variant-2-img" src="" alt="" />
-              <h3 id="variant-2-title"></h3>
-              <a href="chale2.html" id="variant-2-desc"></a>
-            </div>
-            <div id="variant-3-card" class="variant-3-card">
-              <img id="variant-3-img" src="" alt="" />
-              <h3 id="variant-3-title"></h3>
-              <a href="chale3.html" id="variant-3-desc"></a>
-            </div>
-            <div id="variant-4-card" class="variant-4-card">
-              <img id="variant-4-img" src="" alt="" />
-              <h3 id="variant-4-title"></h3>
-              <a href="chale4.html" id="variant-4-desc"></a>
-            </div>
-            <div id="variant-5-card" class="variant-5-card">
-              <img id="variant-5-img" src="" alt="" />
-              <h3 id="variant-5-title"></h3>
-              <a href="chale5.html" id="variant-5-desc"></a>
-            </div>
+          <section class="hero-chale display-center">
+            <h1>The red florest.</h1>
           </section>
-          <section class="coffee-service">
-            <div
-              id="coffee-service-gallery-container"
-              class="coffee-service-imgs-container"
-            ></div>
-          </section>
-          <section class="coffee-app">
-            <div class="coffee-app-video-container display-center">
-              <div class="coffee-app-video">
-                <video src="cafeVideoMobile.mp4" loop autoplay muted></video>
-              </div>
+          <section class="chale-presentation display-center">
+            <div class="chale-presentation-text-container display-center">
+              <h2>Um Refúgio de Calor na Mata</h2>
+              <p>
+                Inspirado nos tons terrosos e na densidade da mata nativa, o The
+                Red Forest é a nossa acomodação mais intimista. A arquitetura em
+                madeira escura cria um contraste acolhedor com o verde vibrante
+                do exterior, transformando este chalé em um verdadeiro ninho
+                escondido na floresta.
+              </p>
             </div>
-            <div class="coffee-app-tutorial-imgs">
-              <div class="img-box">
+            <div class="chale-presentation-imgs-container">
+              <div class="imgs-container">
                 <img
-                  src="https://res.cloudinary.com/dag7ygdqk/image/upload/v1764275227/Screenshot_2025-11-27_at_17-26-30_Coddee_Coffing_do1j4l.png"
+                  src="https://res.cloudinary.com/dag7ygdqk/image/upload/v1762892486/fabio-sasso-nxPucjyxWqg-unsplash_mauspb_lq0kxc.webp"
                   alt=""
+                  class="img1"
                 />
-              </div>
-              <div class="img-box">
                 <img
-                  src="https://res.cloudinary.com/dag7ygdqk/image/upload/v1764275611/Screenshot_2025-11-27_at_17-32-56_Coddee_Coffing_asmved.png"
+                  src="https://res.cloudinary.com/dag7ygdqk/image/upload/v1762892497/tim-swaan-eOpewngf68w-unsplash_vpfvw7.webp"
                   alt=""
+                  class="img2"
                 />
-              </div>
-              <div class="img-box">
                 <img
-                  src="https://res.cloudinary.com/dag7ygdqk/image/upload/v1764275124/Screenshot_2025-11-27_at_17-22-52_Coddee_Coffing_bsxcqg.png"
+                  src="https://res.cloudinary.com/dag7ygdqk/image/upload/v1762892482/intricate-explorer-Ntw5H2hxeQE-unsplash_ffoaf6_u1cxpa.webp"
                   alt=""
-                />
-              </div>
-              <div class="img-box">
-                <img
-                  src="https://res.cloudinary.com/dag7ygdqk/image/upload/v1764275157/Screenshot_2025-11-27_at_17-25-19_Coddee_Coffing_kjxh9d.png"
-                  alt=""
-                />
-              </div>
-              <div class="img-box right">
-                <img
-                  src="https://res.cloudinary.com/dag7ygdqk/image/upload/v1764275186/Screenshot_2025-11-27_at_17-25-49_Coddee_Coffing_vlunzz.png"
-                  alt=""
+                  class="img3"
                 />
               </div>
             </div>
@@ -179,7 +128,6 @@
       </nav>
     </header>
     <div class="transition"></div>
-    <div class="coffee-service-phrase-box"><p id="cafe_text"></p></div>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
@@ -188,6 +136,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
-    <script src="script.js"></script>
+    <script src="chaleScript.js"></script>
   </body>
 </html>

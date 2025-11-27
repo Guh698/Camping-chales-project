@@ -15,14 +15,15 @@ html {
 }
 
 :root {
-  --white: #fff;
-  --brown: #6b5846;
-  --black: #000;
+  --white: #ebe8e3;
+  --black: #1e1b1a;
+  --accent: #cc5803;
   --title-font-size: 13rem;
   --big-font-size: 10rem;
   --medium-big-font-size: 7rem;
   --medium-font-size: 2.4rem;
   --normal-font-size: 1.7rem;
+  --small-mobile-font-size: 4.7rem;
 }
 
 .display-center {
@@ -36,6 +37,14 @@ html {
   :root {
     --medium-font-size: 8rem;
     --normal-font-size: 7rem;
+  }
+
+  .transition {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 110dvh;
+    background: var(--accent);
   }
 
   header nav {
@@ -59,7 +68,7 @@ html {
 
   header nav ul li a {
     color: var(--white);
-    font-size: var(--normal-font-size);
+    font-size: var(--small-mobile-font-size);
     text-decoration: none;
   }
 
@@ -101,6 +110,7 @@ html {
     font-size: var(--big-font-size);
     text-align: center;
     color: var(--black);
+    padding: 4rem;
   }
 
   .experience-imgs-container {
@@ -181,7 +191,7 @@ html {
     font-size: var(--title-font-size);
   }
 
-  .variants p {
+  .variants a {
     position: absolute;
     bottom: 2rem;
     left: 4rem;
@@ -192,7 +202,7 @@ html {
     cursor: pointer;
     opacity: 0;
     border-radius: 1rem;
-    background-color: var(--brown);
+    background-color: var(--black);
   }
 
   .variant-1-card {
@@ -208,6 +218,18 @@ html {
   }
 
   .variant-3-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .variant-4-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .variant-5-card {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -233,6 +255,42 @@ html {
     object-fit: cover;
     object-position: bottom;
     clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+
+  .variant-4-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+
+  .variant-5-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+
+  .variant-1-card a {
+    z-index: 5;
+  }
+
+  .variant-2-card a {
+    z-index: 4;
+  }
+
+  .variant-3-card a {
+    z-index: 3;
+  }
+
+  .variant-4-card a {
+    z-index: 2;
+  }
+
+  .variant-5-card a {
+    z-index: 1;
   }
 
   .coffee-service-imgs-container {
@@ -341,12 +399,14 @@ html {
     transform: rotateY(0) rotateX(0);
     width: 100%;
     height: 70%;
-    border: 1px solid #000;
+    border: 37px solid var(--black);
+    border-radius: 0.9rem;
+    overflow: hidden;
   }
 
   .coffee-app-video video {
-    height: 100%;
-    width: 100%;
+    height: 103%;
+    width: 103%;
     object-fit: cover;
   }
 
@@ -402,7 +462,7 @@ html {
   }
 
   .footer-copy {
-    font-size: var(--normal-font-size);
+    font-size: var(--small-mobile-font-size);
   }
 }
 
@@ -414,6 +474,12 @@ html {
 
   header nav {
     height: 6rem;
+  }
+
+  header nav ul li a {
+    color: var(--white);
+    font-size: var(--normal-font-size);
+    text-decoration: none;
   }
 
   .experience-img-box {
@@ -532,11 +598,7 @@ html {
   .coffee-app-video {
     width: 37%;
     height: 83%;
-  }
-
-  .coffee-app-video video {
-    height: 100%;
-    width: 100%;
+    border: 17px solid var(--black);
   }
 
   .coffee-app-tutorial-imgs {
@@ -555,7 +617,16 @@ html {
   .coffee-app-tutorial-imgs .img-box {
     height: 50%;
     width: 100%;
-    border: 1px solid #000;
+  }
+
+  .coffee-app-tutorial-imgs .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .right img {
+    object-position: right;
   }
 
   footer ul {
@@ -583,5 +654,23 @@ html {
 
   .footer-copy {
     height: 10%;
+    font-size: var(--normal-font-size);
+  }
+
+  .link {
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  .upper-link {
+    position: relative;
+  }
+
+  .lower-link {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
